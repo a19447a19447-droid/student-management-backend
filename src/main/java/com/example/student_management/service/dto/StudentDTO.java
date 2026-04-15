@@ -3,9 +3,7 @@ package com.example.student_management.service.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import lombok.Data;
 
-@Data
 public class StudentDTO {
 
 	private Long id;
@@ -18,4 +16,13 @@ public class StudentDTO {
 	@Size(min = 3, max = 50, message = "The length of surname must be between 3 and 50 characters.")
 	@NotBlank(message = "Surname cannot be empty")
 	private String surname;
+
+    public StudentDTO() {}
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public String getSurname() { return surname; }
+    public void setSurname(String surname) { this.surname = surname; }
 }

@@ -1,15 +1,7 @@
 package com.example.student_management.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.*;
 
-import lombok.Data;
-
-@Data
 @Entity
 public class Student {
 
@@ -23,4 +15,12 @@ public class Student {
 
 	@Column(length = 50)
 	private String surname;
+
+    // Standard Getters and Setters (Fixes the Javac Processor Error)
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public String getSurname() { return surname; }
+    public void setSurname(String surname) { this.surname = surname; }
 }

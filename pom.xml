@@ -7,8 +7,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.3.0</version>
-		<relativePath /> <!-- lookup parent from repository -->
-	</parent>
+		<relativePath /> </parent>
 	<groupId>com.example</groupId>
 	<artifactId>student-management</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -31,6 +30,11 @@
 		<java.version>21</java.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -86,6 +90,24 @@
 		</dependency>
 	</dependencies>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.13.0</version>
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 	<profiles>
 		<profile>
 			<id>dev</id>
@@ -93,7 +115,6 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<!-- default Spring profiles -->
 				<spring.profiles.active>dev</spring.profiles.active>
 			</properties>
 		</profile>
@@ -119,10 +140,8 @@
 				</plugins>
 			</build>
 			<properties>
-				<!-- default Spring profiles -->
 				<spring.profiles.active>prod</spring.profiles.active>
 			</properties>
 		</profile>
 	</profiles>
-
 </project>
