@@ -48,15 +48,15 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	@Override
-	public void delete(Long id) {
+	public void delete(Long studentid) {
 
-		studentRepository.deleteById(id);
+		studentRepository.deleteById(studentid);
 	}
 
 	@Override
-	public Boolean notExistsById(Long id) {
+	public Boolean notExistsById(Long studentid) {
 
-		if (studentRepository.existsById(id)) {
+		if (studentRepository.existsById(studentid)) {
 			return false;
 		}
 
@@ -64,9 +64,9 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	@Override
-	public StudentDTO findById(Long id) {
+	public StudentDTO findById(Long studentid) {
 
-		Student student = studentRepository.getReferenceById(id);
+		Student student = studentRepository.getReferenceById(studentid);
 
 		StudentDTO result = this.modelMapper.map(student, StudentDTO.class);
 

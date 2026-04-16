@@ -16,11 +16,11 @@ public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_id_seq")
 	@SequenceGenerator(name = "student_id_seq", sequenceName = "student_id_seq", allocationSize = 1)
-	private Long id;
+	private Long studentid;
 
 	@Column(nullable = false, length = 50)
-	private String name;
+	private String studentname;
 
 	@Column(length = 50)
-	private String surname;
+	private String studentsurname;
 }
